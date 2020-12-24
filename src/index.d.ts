@@ -282,11 +282,11 @@ interface BranchUniversalObject {
     shareOptions?: BranchShareSheetOptions,
     linkProperties?: BranchLinkProperties,
     controlParams?: BranchLinkControlParams
-  ) => void;
+  ) => Promise<{ channel: string; completed: boolean; error: boolean }>;
   generateShortUrl: (
     linkProperties: BranchLinkProperties,
     controlParams: BranchLinkControlParams
-  ) => void;
+  ) => Promise<{ url: string }>;
   logEvent: (eventName: string, params?: BranchEventParams) => Promise<null>;
   release: () => void;
 }
